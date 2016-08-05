@@ -1,0 +1,45 @@
+{
+    "type": "jsonpstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyJsonPStore",
+        "model": "MyModel",
+        "storeId": "MyJsonPStore"
+    },
+    "name": "MyJsonPStore",
+    "designerId": "cefe5de1-ff73-4a1f-a517-04e8355decac",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.JsonP",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "http://kgmapi.dev:8000/api/kgm/search"
+            },
+            "name": "MyJsonPProxy",
+            "designerId": "7751e3a2-e5b6-4746-8201-7de80a59ab1a",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "records"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "540661b6-5f32-41a6-a65f-af8608c38a2a"
+                }
+            ]
+        }
+    ]
+}

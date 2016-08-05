@@ -1,0 +1,96 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyModel"
+    },
+    "name": "MyModel",
+    "designerId": "f95fa3aa-3c12-4a4f-8e4e-4ac836ed88d5",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ime"
+            },
+            "name": "field",
+            "designerId": "ce166284-4ffd-4885-9d6c-3c41c9e042e0"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "prezime"
+            },
+            "name": "field1",
+            "designerId": "5911e238-f3bc-4ceb-8325-db2256ec7ede"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "familia"
+            },
+            "name": "field2",
+            "designerId": "a8b99e2b-76ab-4074-94da-d91e36c9b206"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "seria"
+            },
+            "name": "field3",
+            "designerId": "397fff60-5acb-4646-aea2-baf1c2e750df"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "number"
+            },
+            "name": "field4",
+            "designerId": "f9893e40-6ac5-4a76-b861-e8db4c03183f"
+        },
+        {
+            "type": "lengthvalidation",
+            "reference": {
+                "name": "validations",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "NumberLengthValidation",
+                "field": "number",
+                "max": 4,
+                "min": 1
+            },
+            "name": "MyLengthValidation",
+            "designerId": "83a9ef77-6024-43eb-9075-19ac812dfa1a"
+        }
+    ]
+}

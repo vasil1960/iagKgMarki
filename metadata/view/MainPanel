@@ -1,0 +1,176 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "mainpanel",
+        "designer|userClassName": "MainPanel",
+        "id": "MainPanel",
+        "layout": "card"
+    },
+    "name": "MyPanel",
+    "designerId": "4a00cd2e-f537-49bd-856f-e654b86f1517",
+    "cn": [
+        {
+            "type": "Ext.dataview.List",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "store": "MyJsonPStore"
+            },
+            "name": "MyList",
+            "designerId": "b4bd683e-11b9-4472-aafa-ab93dd7ad6b7",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "itemTpl",
+                        "implHandler": [
+                            "<div>{ime} {prezime} {familia}</div>",
+                            "<div>{seria} {number}</div>"
+                        ]
+                    },
+                    "name": "itemTpl",
+                    "designerId": "0bfdf8c9-2cb7-4a1a-b72a-473d26af657a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "id": null
+            },
+            "name": "MyToolbar",
+            "designerId": "e04fc781-948a-41cf-b0a7-d3445e083dde",
+            "cn": [
+                {
+                    "type": "Ext.field.Select",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "left",
+                        "id": "txtSeria",
+                        "itemId": "txtSeria",
+                        "label": "Серия:",
+                        "labelWidth": "50%",
+                        "layout|flex": 0,
+                        "name": null,
+                        "options": [
+                            "[",
+                            "    {text : \"А\", value: \"А\"},",
+                            "    {text : \"Б\", value: \"Б\"}",
+                            "]"
+                        ],
+                        "width": "50%"
+                    },
+                    "name": "MySelectField",
+                    "designerId": "b53e8b13-773f-49f3-ae68-ff1ba88b0084"
+                },
+                {
+                    "type": "Ext.field.Search",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "txtSearch",
+                        "itemId": null,
+                        "label": "№:",
+                        "width": "100%"
+                    },
+                    "name": "MySearchField",
+                    "designerId": "e717c05c-7010-4a12-91a4-030bf9abb12e",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtSearchKeyup",
+                                "implHandler": [
+                                    "//var seria = Ext.getCmp('txtSeria').getValue();",
+                                    "//var search = Ext.getCmp('txtSearch').getValue();",
+                                    "//var store = Ext.getStore('MyJsonPStore');",
+                                    "//console.log(store);",
+                                    "",
+                                    "Ext.Viewport.setMasked({ xtype: 'loadmask', message: 'Зареждам ...', indicator:true});",
+                                    "",
+                                    "        var seria = Ext.getCmp('txtSeria').getValue();",
+                                    "        var search = Ext.getCmp('txtSearch').getValue();",
+                                    "",
+                                    "",
+                                    "        if(search.length > 0 && search.length < 5)",
+                                    "",
+                                    "        {",
+                                    "            var store = Ext.getStore('MyJsonPStore');",
+                                    "            store.autoLoad = false;",
+                                    "            store.load(",
+                                    "                {",
+                                    "                    params: {",
+                                    "                        seria: seria,",
+                                    "                        number: search",
+                                    "                    },",
+                                    "                    callback: function(records, operation, success) {",
+                                    "",
+                                    "                        if(success)",
+                                    "                        {",
+                                    "                            Ext.Viewport.setMasked(false);",
+                                    "                           // Ext.Viewport.animateActiveItem(Ext.create('Contacts.view.MainTabPanel'),{type:'flip',duration: 400});",
+                                    "                          //  Ext.Viewport.setMasked(false);",
+                                    "                            console.log('success');",
+                                    "                        }",
+                                    "                        else",
+                                    "                        {",
+                                    "                            Ext.Viewport.setMasked(false);",
+                                    "                            Ext.Msg.alert('Събщение', 'Грешна парола или потребителско име.', Ext.emptyFn);",
+                                    "                            console.log('unsuccess');",
+                                    "                        }",
+                                    "                    },",
+                                    "                    scope: this",
+                                    "                });",
+                                    "",
+                                    "        }",
+                                    "        else",
+                                    "        {",
+                                    "            Ext.Msg.alert('Събщение', 'Полетата \"Потребител\" и \"Парола\" са задължителни за попълване', Ext.emptyFn);",
+                                    "            Ext.Viewport.setMasked(false);",
+                                    "        }",
+                                    "",
+                                    ""
+                                ],
+                                "name": "keyup"
+                            },
+                            "name": "onTxtSearchKeyup",
+                            "designerId": "743c1c87-8e27-45f2-96e0-64b13c03443d"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
